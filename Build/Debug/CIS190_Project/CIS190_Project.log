@@ -1,21 +1,21 @@
-﻿Build started 11/12/2011 4:15:29 PM.
-     1>Project "c:\Users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" on node 2 (build target(s)).
+﻿Build started 11/12/2011 5:45:23 PM.
+     1>Project "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Touching "c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild".
+         Creating "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D WINVER=0x0601 /D _WIN32_WINNT=0x0601 /D _WIN32_IE=0x0900 /D UNICODE /Gm- /EHsc /MTd /GS /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Yc"precomp.h" /Fp"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.pch" /Fo"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\\" /Fd"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.pdb" /Gd /TP /analyze- /errorReport:prompt precomp.cpp
-         precomp.cpp
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D WINVER=0x0601 /D _WIN32_WINNT=0x0601 /D _WIN32_IE=0x0900 /D UNICODE /Gm- /EHsc /MTd /GS /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Yu"precomp.h" /Fp"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.pch" /Fo"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\\" /Fd"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.pdb" /Gd /TP /analyze- /errorReport:prompt program.cpp
-         program.cpp
+         All outputs are up-to-date.
+         All outputs are up-to-date.
        ManifestResourceCompile:
-         c:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.exe.embed.manifest.res" "c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project_manifest.rc" 
+         All outputs are up-to-date.
        Link:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.lib" /MACHINE:X86 "c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.exe.embed.manifest.res"
-         "c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\precomp.obj"
-         "c:\users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\program.obj"
-     1>LINK : fatal error LNK1104: cannot open file 'dxguid.lib'
-     1>Done Building Project "c:\Users\gmenezes\documents\visual studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" (build target(s)) -- FAILED.
+         All outputs are up-to-date.
+       Manifest:
+         All outputs are up-to-date.
+       FinalizeBuildStatus:
+         Deleting file "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild".
+         Touching "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.lastbuildstate".
+     1>Done Building Project "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" (build target(s)).
 
-Build FAILED.
+Build succeeded.
 
-Time Elapsed 00:00:03.42
+Time Elapsed 00:00:00.57

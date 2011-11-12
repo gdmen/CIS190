@@ -70,8 +70,12 @@
     <ClCompile Include="program.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BuildingModel.h" />
+    <ClInclude Include="Enums.h" />
+    <ClInclude Include="PlayerModel.h" />
     <ClInclude Include="precomp.h" />
     <ClInclude Include="program.h" />
+    <ClInclude Include="UnitModel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
