@@ -5,12 +5,13 @@ class PlayerModel;
 
 class BuildingModel{
 	public:
-		BuildingModel(int income, PlayerModel* p);
+		BuildingModel(Building_Enum type, int income, PlayerModel* p);
 		int getIncome();
 		PlayerModel* getPlayer();
-		virtual Building_Enum getType() = 0;
+		Building_Enum getType();
 
 	private:
 		PlayerModel* player;
 		int income;
+		Building_Enum type;
 };
