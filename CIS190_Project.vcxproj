@@ -63,18 +63,33 @@
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="precomp.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="ArtilleryModel.cpp" />
+    <ClCompile Include="BaseModel.cpp" />
+    <ClCompile Include="BuildingModel.cpp" />
+    <ClCompile Include="CityModel.cpp" />
+    <ClCompile Include="Enums.cpp" />
+    <ClCompile Include="HeadquartersModel.cpp" />
+    <ClCompile Include="InfantryModel.cpp" />
+    <ClCompile Include="MechModel.cpp" />
+    <ClCompile Include="PlayerModel.cpp" />
+    <ClCompile Include="precomp.cpp" />
     <ClCompile Include="program.cpp" />
+    <ClCompile Include="TankModel.cpp" />
+    <ClCompile Include="UnitModel.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArtilleryModel.h" />
+    <ClInclude Include="BaseModel.h" />
     <ClInclude Include="BuildingModel.h" />
+    <ClInclude Include="CityModel.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="HeadquartersModel.h" />
+    <ClInclude Include="InfantryModel.h" />
+    <ClInclude Include="MechModel.h" />
     <ClInclude Include="PlayerModel.h" />
     <ClInclude Include="precomp.h" />
     <ClInclude Include="program.h" />
+    <ClInclude Include="TankModel.h" />
     <ClInclude Include="UnitModel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

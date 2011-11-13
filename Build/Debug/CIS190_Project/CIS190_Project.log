@@ -1,21 +1,59 @@
-﻿Build started 11/12/2011 5:45:23 PM.
+﻿Build started 11/12/2011 8:35:21 PM.
      1>Project "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild".
        ClCompile:
-         All outputs are up-to-date.
-         All outputs are up-to-date.
-       ManifestResourceCompile:
-         All outputs are up-to-date.
-       Link:
-         All outputs are up-to-date.
-       Manifest:
-         All outputs are up-to-date.
-       FinalizeBuildStatus:
-         Deleting file "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild".
-         Touching "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.lastbuildstate".
-     1>Done Building Project "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" (build target(s)).
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D WINVER=0x0601 /D _WIN32_WINNT=0x0601 /D _WIN32_IE=0x0900 /D UNICODE /Gm- /EHsc /MTd /GS /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Yu"precomp.h" /Fp"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.pch" /Fo"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\\" /Fd"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.pdb" /Gd /TP /analyze- /errorReport:prompt ArtilleryModel.cpp BaseModel.cpp BuildingModel.cpp CityModel.cpp Enums.cpp HeadquartersModel.cpp InfantryModel.cpp MechModel.cpp PlayerModel.cpp precomp.cpp program.cpp TankModel.cpp UnitModel.cpp
+         ArtilleryModel.cpp
+     1>ArtilleryModel.cpp(1): warning C4627: '#include "ArtilleryModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>ArtilleryModel.cpp(12): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         BaseModel.cpp
+     1>BaseModel.cpp(1): warning C4627: '#include "BaseModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>BaseModel.cpp(9): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         BuildingModel.cpp
+     1>BuildingModel.cpp(1): warning C4627: '#include "BuildingModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>BuildingModel.cpp(2): warning C4627: '#include "PlayerModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>BuildingModel.cpp(14): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         CityModel.cpp
+         Enums.cpp
+     1>CityModel.cpp(1): warning C4627: '#include "CityModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>CityModel.cpp(9): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         HeadquartersModel.cpp
+     1>Enums.cpp(1): warning C4627: '#include "Enums.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>Enums.cpp(2): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         InfantryModel.cpp
+     1>HeadquartersModel.cpp(1): warning C4627: '#include "HeadquartersModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>HeadquartersModel.cpp(9): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+     1>InfantryModel.cpp(1): warning C4627: '#include "InfantryModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>InfantryModel.cpp(12): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         MechModel.cpp
+         PlayerModel.cpp
+     1>MechModel.cpp(1): warning C4627: '#include "MechModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>MechModel.cpp(12): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+     1>PlayerModel.cpp(1): warning C4627: '#include "PlayerModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>PlayerModel.cpp(20): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         precomp.cpp
+         program.cpp
+         TankModel.cpp
+     1>TankModel.cpp(1): warning C4627: '#include "TankModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>TankModel.cpp(12): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+         UnitModel.cpp
+     1>UnitModel.cpp(1): warning C4627: '#include "UnitModel.h"': skipped when looking for precompiled header use
+                 Add directive to 'precomp.h' or rebuild precompiled header
+     1>UnitModel.cpp(34): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "precomp.h"' to your source?
+     1>Done Building Project "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" (build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:00.57
+Time Elapsed 00:00:01.52

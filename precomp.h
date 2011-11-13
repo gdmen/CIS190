@@ -16,3 +16,18 @@
 #include <ClanLib/sqlite.h>
 #include <ClanLib/regexp.h>
 #include <ClanLib/csslayout.h>
+
+
+
+
+/*
+#include "BuildingModel.h"
+#include "BaseModel.h"
+#include "CityModel.h"
+#include "HeadquartersModel.h"
+#include "UnitModel.h"
+#include "InfantryModel.h"
+#include "MechModel.h"
+#include "ArtilleryModel.h"
+#include "TankModel.h"
+*/

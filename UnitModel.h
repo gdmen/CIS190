@@ -1,19 +1,27 @@
 #pragma once
 
+#include <map>
 #include "PlayerModel.h"
+#include "Enums.h"
 
 class UnitModel{
-	//TODO: add terrain : movement mapping
 	public:
-	  UnitModel(int damage, int health, int moves, PlayerModel* p);
-	  
-	  int getDamage();
-	  int getHealth();
-	  void reduceHealth(int reduction);
-	  int getMoves();
-	  void move(int num_moves);
+		UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p);
+		int getHealth();
+		void reduceHealth(int reduction);
+		int getMoves();
+		void reduceMoves(int num_moves);
+		Unit_Enum getType();
+		double getStrengthModifier();
+		int getMovesNeeded(Terrain_Enum terrain);
+		PlayerModel* getPlayer();
 
 	protected:
-	  int damage, health, moves;
-	  PlayerModel* p;
+		map<Terrain_Enum, int> terrain_movement_mapping;
+
+	private:
+		int health, moves;
+		double strength_modifier;
+		Unit_Enum type;
+		PlayerModel* player;
 };

@@ -1,13 +1,16 @@
 #pragma once
 
 #include "PlayerModel.h"
+#include "Enums.h"
 
 class BuildingModel{
 	public:
-	  BuildingModel(int income, PlayerModel* p);
-	  int getIncome();
+		BuildingModel(int income, PlayerModel* p);
+		int getIncome();
+		PlayerModel* getPlayer();
+		virtual Building_Enum getType() = 0;
 
-	protected:
+	private:
+		PlayerModel* player;
 		int income;
-		PlayerModel* p;
 };

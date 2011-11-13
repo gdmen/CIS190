@@ -1,24 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseModel.cpp">
+      <Filter>Source Files\Buldings</Filter>
+    </ClCompile>
+    <ClCompile Include="BuildingModel.cpp">
+      <Filter>Source Files\Buldings</Filter>
+    </ClCompile>
+    <ClCompile Include="CityModel.cpp">
+      <Filter>Source Files\Buldings</Filter>
+    </ClCompile>
+    <ClCompile Include="HeadquartersModel.cpp">
+      <Filter>Source Files\Buldings</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitModel.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="InfantryModel.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="ArtilleryModel.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="TankModel.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="MechModel.cpp">
+      <Filter>Source Files\Units</Filter>
+    </ClCompile>
     <ClCompile Include="precomp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="program.cpp">
+    <ClCompile Include="PlayerModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Enums.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BuildingModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Enums.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UnitModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="precomp.h">
@@ -27,6 +54,33 @@
     <ClInclude Include="program.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BuildingModel.h">
+      <Filter>Header Files\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="CityModel.h">
+      <Filter>Header Files\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseModel.h">
+      <Filter>Header Files\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="HeadquartersModel.h">
+      <Filter>Header Files\Buildings</Filter>
+    </ClInclude>
+    <ClInclude Include="ArtilleryModel.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="InfantryModel.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="MechModel.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="TankModel.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitModel.h">
+      <Filter>Header Files\Units</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -34,6 +88,18 @@
     </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{1e4a2304-4cb5-4900-a0c9-152f4efb71aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Buildings">
+      <UniqueIdentifier>{2610ee26-11cc-43a2-9752-57d8a2a7cb49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Units">
+      <UniqueIdentifier>{150ff9ea-e7bc-4b4b-a24a-8c51dca8ed9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Buldings">
+      <UniqueIdentifier>{22a9c1e3-87fa-452f-883c-1c52bb8e65dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Units">
+      <UniqueIdentifier>{5ee280ef-28e4-4ef9-81bb-e03ee0498e50}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
