@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "CityModel.h"
 
 CityModel::CityModel(int income, PlayerModel* p)

@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "UnitModel.h"
 
 UnitModel::UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p){

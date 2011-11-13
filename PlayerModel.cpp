@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "PlayerModel.h"
 
 PlayerModel::PlayerModel(string name){
@@ -12,7 +13,7 @@ void PlayerModel::addBuilding(BuildingModel* b){
 //sums income from all buildings
 int PlayerModel::getIncome(){
 	int income = 0;
-	for(int i = 0; i < buildings.size(); i++){
+	for(unsigned int i = 0; i < buildings.size(); i++){
 		income += buildings.at(i)->getIncome();
 	}
 	return income;

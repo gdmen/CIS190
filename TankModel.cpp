@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "TankModel.h"
 
 TankModel::TankModel(PlayerModel* p)

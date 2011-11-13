@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PlayerModel.h"
+class PlayerModel;
 #include "Enums.h"
 
 class BuildingModel{

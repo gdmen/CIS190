@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "BuildingModel.h"
 #include "PlayerModel.h"
 

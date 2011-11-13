@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "InfantryModel.h"
 
 InfantryModel::InfantryModel(PlayerModel* p)

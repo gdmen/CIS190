@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "ArtilleryModel.h"
 
 ArtilleryModel::ArtilleryModel(PlayerModel* p)
