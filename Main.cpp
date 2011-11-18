@@ -52,8 +52,11 @@ public:
 		CL_PixelBuffer plain = CL_PNGProvider::load("tiles/plain.png");
 		CL_PixelBuffer mountain = CL_PNGProvider::load("tiles/mountain1.png");
 		CL_PixelBuffer road = CL_PNGProvider::load("tiles/road_h.png");
-		for(int i = 0;i < MAP_HEIGHT;++i){
-			for(int j = 0;j<MAP_WIDTH;++j){
+
+		for(int i = 0;i < MAP_HEIGHT;++i)
+		{
+			for(int j = 0;j<MAP_WIDTH;++j)
+			{
 				if(terrains[i][j] == PLAIN)
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,plain,rect);
 				else if(terrains[i][j] == MOUNTAIN)
@@ -134,24 +137,8 @@ public:
 	void run()
 	{
 		quit = false;
-	
-		
-		CL_GUILayoutCorners* base = new CL_GUILayoutCorners();
 
-		CL_GUIManager* manager = new CL_GUIManager();
-		CL_DisplayWindowDescription* window_description = new CL_DisplayWindowDescription();
-		CL_Window window_(manager, *window_description);
-		CL_ListView listview(&window_);
-		CL_ScrollBar vertical_scroll(&listview);
-		CL_ScrollBar horizontal_scroll(&listview);
-		CL_PushButton ok_button(&window_);
-		ok_button.set_text("Ok");
-		CL_PushButton cancel_button(&window_);
-		cancel_button.set_text("Cancel");
-		manager->render_windows();
-		/*
 		window = new CL_DisplayWindow("Game Map",MAP_WIDTH*PIECE_SIZE+WIDTH_OFFSET, MAP_HEIGHT*PIECE_SIZE+HEIGHT_OFFSET);
-
 		CL_InputContext ic = window->get_ic();
 		CL_InputDevice mouse = ic.get_mouse();
 
@@ -166,7 +153,8 @@ public:
 			}
 			newView = new View(terrains,NULL,NULL,gc);
 			window->flip();
-			while (!quit){
+			while (!quit)
+			{
 				if(keyboard.get_keycode(CL_KEY_ESCAPE) == true)
 					quit = true;
 					
@@ -195,14 +183,13 @@ public:
 				CL_Rect rect = CL_Rect(1,0,32,32);
 				gc.draw_pixels(0,0,plain,rect);
 				gc.draw_pixels(0,0,infantry,rect);
-				CL_Draw::box(gc,rect,CL_Colorf::red);
+				CL_Draw::box(gc,rect,CL_Colorf::red);*/
 
 				//window.flip();
 				CL_KeepAlive::process();
 
 				CL_System::sleep(10);
 			}
-	*/
 	}
 
 
