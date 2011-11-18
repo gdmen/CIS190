@@ -68,12 +68,13 @@
     <ClCompile Include="BuildingModel.cpp" />
     <ClCompile Include="CityModel.cpp" />
     <ClCompile Include="Enums.cpp" />
+    <ClCompile Include="GameMapModel.cpp" />
     <ClCompile Include="HeadquartersModel.cpp" />
     <ClCompile Include="InfantryModel.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MechModel.cpp" />
     <ClCompile Include="PlayerModel.cpp" />
     <ClCompile Include="precomp.cpp" />
-    <ClCompile Include="program.cpp" />
     <ClCompile Include="TankModel.cpp" />
     <ClCompile Include="UnitModel.cpp" />
   </ItemGroup>
@@ -83,12 +84,12 @@
     <ClInclude Include="BuildingModel.h" />
     <ClInclude Include="CityModel.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="GameMapModel.h" />
     <ClInclude Include="HeadquartersModel.h" />
     <ClInclude Include="InfantryModel.h" />
     <ClInclude Include="MechModel.h" />
     <ClInclude Include="PlayerModel.h" />
     <ClInclude Include="precomp.h" />
-    <ClInclude Include="program.h" />
     <ClInclude Include="TankModel.h" />
     <ClInclude Include="UnitModel.h" />
   </ItemGroup>
