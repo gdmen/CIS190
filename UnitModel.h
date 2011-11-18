@@ -6,6 +6,7 @@
 
 class UnitModel{
 	public:
+		UnitModel();
 		UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p);
 		int getHealth();
 		void reduceHealth(int reduction);

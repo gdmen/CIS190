@@ -16,6 +16,10 @@
 #include <ClanLib/sqlite.h>
 #include <ClanLib/regexp.h>
 #include <ClanLib/csslayout.h>
+#include <ClanLib/application.h>
+#include <ClanLib/GUI/Components/window.h>
+#include <ClanLib/GUI/gui_manager.h>
+#include <ClanLib/GUI/gui_component.h>
 
 
 

@@ -1,3 +1,4 @@
+#include "precomp.h"
 #include "GameMapModel.h"
 
 GameMapModel::GameMapModel(){
@@ -8,5 +9,7 @@ void GameMapModel::populateUnits(){
 }
 void GameMapModel::populateBuildings(){
 }
-void GameMapModel::populateSelected(){
+void GameMapModel::populateHighlighted(){
+}
+void GameMapModel::populateAttack(){
 }

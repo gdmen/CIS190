@@ -5,6 +5,7 @@ class PlayerModel;
 
 class BuildingModel{
 	public:
+		BuildingModel();
 		BuildingModel(Building_Enum type, int income, PlayerModel* p);
 		int getIncome();
 		PlayerModel* getPlayer();
