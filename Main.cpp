@@ -1,10 +1,4 @@
-#include <ClanLib/core.h>
-#include <ClanLib/display.h>
-#include <ClanLib/gl.h>
-#include <ClanLib/application.h>
-#include <ClanLib/gui.h>
-#include <ClanLib/GUI/Components/window.h>
-#include <ClanLib/GUI/gui_manager.h>
+#include "precomp.h"
 
 /*
 TODO:
@@ -58,6 +52,7 @@ public:
 		CL_PixelBuffer plain = CL_PNGProvider::load("tiles/plain.png");
 		CL_PixelBuffer mountain = CL_PNGProvider::load("tiles/mountain1.png");
 		CL_PixelBuffer road = CL_PNGProvider::load("tiles/road_h.png");
+<<<<<<< HEAD
 		for(int i = 0;i < MAP_HEIGHT;++i)
 		{
 			for(int j = 0;j<MAP_WIDTH;++j)
@@ -143,11 +138,10 @@ public:
 	{
 		quit = false;
 	
-		
-	  
-	 window = new CL_DisplayWindow("Game Map",MAP_WIDTH*PIECE_SIZE+WIDTH_OFFSET, MAP_HEIGHT*PIECE_SIZE+HEIGHT_OFFSET);
+		window = new CL_DisplayWindow("Game Map",MAP_WIDTH*PIECE_SIZE+WIDTH_OFFSET, MAP_HEIGHT*PIECE_SIZE+HEIGHT_OFFSET);
 		CL_InputContext ic = window->get_ic();
 		CL_InputDevice mouse = ic.get_mouse();
+
 		CL_Slot slot_quit = window->sig_window_close().connect(this, &EventHandler::on_window_close);
 		mousepress =mouse.sig_key_down().connect(this,&EventHandler::handleMousePress);
 		CL_GraphicContext gc = window->get_gc();
