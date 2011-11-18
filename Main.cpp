@@ -139,7 +139,7 @@ public:
 		CL_GUILayoutCorners* base = new CL_GUILayoutCorners();
 
 		CL_GUIManager* manager = new CL_GUIManager();
-		const CL_DisplayWindowDescription* window_description = new CL_DisplayWindowDescription();
+		CL_DisplayWindowDescription* window_description = new CL_DisplayWindowDescription();
 		CL_Window window_(manager, *window_description);
 		CL_ListView listview(&window_);
 		CL_ScrollBar vertical_scroll(&listview);
