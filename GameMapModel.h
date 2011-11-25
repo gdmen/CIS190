@@ -4,24 +4,31 @@
 #include "PlayerModel.h"
 #include "UnitModel.h"
 #include "BuildingModel.h"
+#include "BaseModel.h"
+#include "HeadquartersModel.h"
+#include "CityModel.h"
+#include "InfantryModel.h"
+#include "ArtilleryModel.h"
+#include "TankModel.h"
+#include "MechModel.h"
 
 class GameMapModel{
 	public:
-		GameMapModel();
-		Terrain_Enum terrain[10][10];
-		/*
-		UnitModel units[10][10];
-		BuildingModel buildings[10][10];
-		*/
-		bool highlighted[10][10];
+		GameMapModel(PlayerModel* p1, PlayerModel* p2);
+		Terrain_Enum terrain[MAP_HEIGHT][MAP_WIDTH];
+		
+		UnitModel* units[MAP_HEIGHT][MAP_WIDTH];
+		BuildingModel* buildings[MAP_HEIGHT][MAP_WIDTH];
+		
+		bool highlighted[MAP_HEIGHT][MAP_WIDTH];
 		// highlight in red when in the second stage of attacking
 		// (if move-and-attacked, and there is a choice of whom to attack)
-		bool attack[10][10];
+		bool attack[MAP_HEIGHT][MAP_WIDTH];
 
 	private:
 		void populateTerrain();
 		void populateUnits();
-		void populateBuildings();
+		void populateBuildings(PlayerModel* p1, PlayerModel* p2);
 		void populateHighlighted();
 		void populateAttack();
 };
