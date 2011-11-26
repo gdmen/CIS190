@@ -51,7 +51,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>precomp.h</PrecompiledHeaderFile>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -68,6 +68,7 @@
     <ClCompile Include="BuildingModel.cpp" />
     <ClCompile Include="CityModel.cpp" />
     <ClCompile Include="Enums.cpp" />
+    <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameMapModel.cpp" />
     <ClCompile Include="HeadquartersModel.cpp" />
     <ClCompile Include="InfantryModel.cpp" />
@@ -84,6 +85,7 @@
     <ClInclude Include="BuildingModel.h" />
     <ClInclude Include="CityModel.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="GameController.h" />
     <ClInclude Include="GameMapModel.h" />
     <ClInclude Include="HeadquartersModel.h" />
     <ClInclude Include="InfantryModel.h" />
