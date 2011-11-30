@@ -1,7 +1,7 @@
 #pragma once
 
 class PlayerModel;
-#include "Enums.h"
+#include "Constants.h"
 
 class BuildingModel{
 	public:

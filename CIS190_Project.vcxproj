@@ -71,7 +71,7 @@
     <ClCompile Include="BaseModel.cpp" />
     <ClCompile Include="BuildingModel.cpp" />
     <ClCompile Include="CityModel.cpp" />
-    <ClCompile Include="Enums.cpp" />
+    <ClCompile Include="Constants.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameMapModel.cpp" />
     <ClCompile Include="HeadquartersModel.cpp" />
@@ -88,7 +88,7 @@
     <ClInclude Include="BaseModel.h" />
     <ClInclude Include="BuildingModel.h" />
     <ClInclude Include="CityModel.h" />
-    <ClInclude Include="Enums.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameMapModel.h" />
     <ClInclude Include="HeadquartersModel.h" />

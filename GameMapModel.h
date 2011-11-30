@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Enums.h"
+#include "Constants.h"
 #include "PlayerModel.h"
 #include "UnitModel.h"
 #include "BuildingModel.h"
@@ -25,10 +25,16 @@ class GameMapModel{
 		// (if move-and-attacked, and there is a choice of whom to attack)
 		bool attack[MAP_HEIGHT][MAP_WIDTH];
 
-	private:
+		void setSelected(int row, int col);
+		int getRowSelected();
+		int getColSelected();
+
 		void populateTerrain();
 		void populateUnits();
 		void populateBuildings(PlayerModel* p1, PlayerModel* p2);
 		void populateHighlighted();
 		void populateAttack();
+
+	private:
+		int row_selected, col_selected;
 };

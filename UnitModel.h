@@ -2,7 +2,7 @@
 
 #include <map>
 #include "PlayerModel.h"
-#include "Enums.h"
+#include "Constants.h"
 
 class UnitModel{
 	public:
@@ -11,10 +11,11 @@ class UnitModel{
 		int getHealth();
 		void reduceHealth(int reduction);
 		int getMoves();
-		void reduceMoves(int num_moves);
 		Unit_Enum getType();
 		double getStrengthModifier();
 		int getMovesNeeded(Terrain_Enum terrain);
+		bool canMove();
+		void moved();
 		PlayerModel* getPlayer();
 
 	protected:
@@ -22,6 +23,7 @@ class UnitModel{
 
 	private:
 		int health, moves;
+		bool hasMoved;
 		double strength_modifier;
 		Unit_Enum type;
 		PlayerModel* player;

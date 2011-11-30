@@ -62,3 +62,13 @@ void GameMapModel::populateAttack(){
 				
 			}
 }
+void GameMapModel::setSelected(int row, int col){
+	row_selected = row;
+	col_selected = col;
+}
+int GameMapModel::getRowSelected(){
+	return row_selected;
+}
+int GameMapModel::getColSelected(){
+	return col_selected;
+}

@@ -1,20 +1,23 @@
-﻿Build started 11/12/2011 9:28:41 PM.
+﻿Build started 11/26/2011 1:51:01 PM.
      1>Project "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\CIS190_Project.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D WINVER=0x0601 /D _WIN32_WINNT=0x0601 /D _WIN32_IE=0x0900 /D UNICODE /Gm- /EHsc /MTd /GS /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Yu"precomp.h" /Fp"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.pch" /Fo"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\\" /Fd"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.pdb" /Gd /TP /analyze- /errorReport:prompt ArtilleryModel.cpp BaseModel.cpp BuildingModel.cpp CityModel.cpp Enums.cpp HeadquartersModel.cpp InfantryModel.cpp MechModel.cpp PlayerModel.cpp precomp.cpp program.cpp TankModel.cpp UnitModel.cpp
+         c:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D WINVER=0x0601 /D _WIN32_WINNT=0x0601 /D _WIN32_IE=0x0900 /D UNICODE /D _MBCS /Gm- /EHsc /MTd /GS /arch:SSE2 /fp:precise /Zc:wchar_t /Zc:forScope /Yc"precomp.h" /Fp"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CIS190_Project.pch" /Fo"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\\" /Fd"C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project.pdb" /Gd /TP /analyze- /errorReport:prompt ArtilleryModel.cpp BaseModel.cpp BuildingModel.cpp CityModel.cpp Enums.cpp GameController.cpp GameMapModel.cpp HeadquartersModel.cpp InfantryModel.cpp Main.cpp MechModel.cpp PlayerModel.cpp precomp.cpp TankModel.cpp UnitModel.cpp
+     1>cl : Command line warning D9030: '/Yc' is incompatible with multiprocessing; ignoring /MP switch
          ArtilleryModel.cpp
          BaseModel.cpp
          BuildingModel.cpp
          CityModel.cpp
          Enums.cpp
+         GameController.cpp
+         GameMapModel.cpp
          HeadquartersModel.cpp
          InfantryModel.cpp
+         Main.cpp
          MechModel.cpp
          PlayerModel.cpp
          precomp.cpp
-         program.cpp
          TankModel.cpp
          UnitModel.cpp
        ManifestResourceCompile:
@@ -26,12 +29,14 @@
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\BuildingModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\CityModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\Enums.obj"
+         "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\GameController.obj"
+         "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\GameMapModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\HeadquartersModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\InfantryModel.obj"
+         "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\Main.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\MechModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\PlayerModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\precomp.obj"
-         "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\program.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\TankModel.obj"
          "C:\Users\gmenezes\Documents\Visual Studio 2010\Projects\CIS190_Project\Build\Debug\CIS190_Project\UnitModel.obj"
        Manifest:
@@ -47,4 +52,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.92
+Time Elapsed 00:00:10.03

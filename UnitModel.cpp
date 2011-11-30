@@ -7,6 +7,7 @@ UnitModel::UnitModel(double strength_modifier, int moves, Unit_Enum type, Player
 	this->type = type;
 	this->player = p;
 	this->health = 10;
+	this->hasMoved = false;
 }
 int UnitModel::getHealth(){
 	return health;
@@ -17,9 +18,6 @@ void UnitModel::reduceHealth(int reduction){
 int UnitModel::getMoves(){
 	return moves;
 }
-void UnitModel::reduceMoves(int num_moves){
-	moves -= num_moves;
-}
 Unit_Enum UnitModel::getType(){
 	return type;
 }
@@ -28,6 +26,12 @@ double UnitModel::getStrengthModifier(){
 }
 int UnitModel::getMovesNeeded(Terrain_Enum terrain){
 	return terrain_movement_mapping[terrain];
+}
+bool UnitModel::canMove(){
+	return hasMoved;
+}
+void UnitModel::moved(){
+	hasMoved = true;
 }
 PlayerModel* UnitModel::getPlayer(){
 	return player;
