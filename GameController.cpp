@@ -1,41 +1,53 @@
 #include "precomp.h"
 #include "GameController.h"
 
-GameController::GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map){
+GameController::GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map, View* view){
 	this->p1 = p1;
 	this->p2 = p2;
 	this->map = map;
+	this->view = view;
 }
-void GameController::selectSquare(int row, int col){
+
+void GameController::resetUnits(){
+	for(int row = 0; row < MAP_HEIGHT; row++){
+		for(int col = 0; col < MAP_WIDTH; col++){
+			UnitModel* unit = map->units[row][col];
+			if(unit != NULL){
+				unit->hasMoved = false;
+			}
+		}
+	}
+}
+Menu_Enum GameController::selectSquare(int row, int col, int current_player){
+	Menu_Enum menu_type = DEFAULT;
 	UnitModel* unit = map->units[row][col];
 	BuildingModel* building = map->buildings[row][col];
-	if(building != NULL){
-		if(building->getType() == BASE && ((BaseModel*)building)->canProduce()){
-			//TODO:
-			//GUI.displayBaseMenu();
-		}
-	}else if(unit != NULL){
+	if(unit != NULL && unit->getPlayer()->number() == current_player){
 		if(unit->canMove()){
 			//clear highlighted
 			map->populateHighlighted();
 			map->populateAttack();
 			map->setSelected(row, col);
-			setMoveHighlighted(row, col);
+			setMoveHighlighted(row, col, current_player);
 		}else{
 			map->populateHighlighted();
 			map->populateAttack();
 			map->setSelected(-1,-1);
 		}
 	}else if(map->highlighted[row][col]){
-		unit = map->units[map->getRowSelected()][map->getColSelected()];
-		map->units[row][col] = unit;
-		map->units[map->getRowSelected()][map->getColSelected()] = NULL;
-		unit->moved();
-		map->populateHighlighted();
-		map->populateAttack();
-		if(setAttackHighlighted(row, col)){
-			//TODO:
-			//GUI.displayUnitAttackMenu();
+		if(map->getRowSelected() > 0){
+			unit = map->units[map->getRowSelected()][map->getColSelected()];
+			if(unit != NULL && unit->canMove()){
+				map->units[row][col] = unit;
+				map->units[map->getRowSelected()][map->getColSelected()] = NULL;
+				unit->moved();
+				map->populateHighlighted();
+				map->populateAttack();
+				setAttackHighlighted(row, col, current_player);
+				map->setSelected(row, col);
+				view->showPlayer(current_player);
+				return menu_type;
+			}
 		}
 	}else if(map->attack[row][col]){
 		UnitModel* atk_unit = map->units[map->getRowSelected()][map->getColSelected()];
@@ -44,17 +56,34 @@ void GameController::selectSquare(int row, int col){
 		if(atk_unit->getHealth() <= 0){
 			map->units[map->getRowSelected()][map->getColSelected()] = NULL;
 			continue_atk = false;
-		} if(unit->getHealth() <= 0){
+		}if(unit->getHealth() <= 0){
 			map->units[row][col] = NULL;
 			continue_atk = false;
-		} if(continue_atk){
+		}if(continue_atk){
 			attack(unit, atk_unit);
+		}if(atk_unit->getHealth() <= 0){
+			map->units[map->getRowSelected()][map->getColSelected()] = NULL;
+		}if(unit->getHealth() <= 0){
+			map->units[row][col] = NULL;
 		}
+	}else if(building != NULL){
+		map->populateHighlighted();
+		map->populateAttack();
+		if(building && building->getType() == BASE && building->getPlayer()->number() == current_player){
+			view->showBuildMenu();
+			menu_type = BUILD;
+		}
+		map->setSelected(-1,-1);
 	}else{
 		//is random click
 		map->populateHighlighted();
 		map->populateAttack();
+		map->setSelected(-1,-1);
 	}
+	map->highlighted[row][col] = true;
+	if(menu_type == DEFAULT)
+		view->showPlayer(current_player);
+	return menu_type;
 }
 
 void GameController::attack(UnitModel* attacker, UnitModel* defender){
@@ -120,9 +149,11 @@ int getSmallestDistanceIndex(vector<Node*> graph){
 	return index;
 }
 
-bool GameController::setMoveHighlighted(int row, int col){
+bool GameController::setMoveHighlighted(int row, int col, int current_player){
+	/*
 	UnitModel* unit = map->units[map->getRowSelected()][map->getColSelected()];
 	vector<Node*> graph = generateGraph();
+	vector<Node*> result;
 	while(graph.size() > 0){
 		int u_index = getSmallestDistanceIndex(graph);
 		Node* u = graph.at(u_index);
@@ -139,25 +170,48 @@ bool GameController::setMoveHighlighted(int row, int col){
 				v->previous = u;
 			}
 		}
+		result.push_back(graph.at(u_index));
 		graph.erase(graph.begin() + u_index);
 	}
-	for(unsigned int i = 0; i < graph.size(); i++){
-		Node* n = graph.at(i);
+	for(unsigned int i = 0; i < result.size(); i++){
+		Node* n = result.at(i);
 		if(n->distance < unit->getMoves()){
-			map->highlighted[map->getRowSelected()][map->getColSelected()];
+			map->highlighted[n->row][n->col] = true;
 		}
+	}
+	*/
+	if(row-1 >= 0){
+		if(map->units[row-1][col] == NULL && map->buildings[row-1][col] == NULL)
+			map->highlighted[row-1][col] = true;
+	} if(row+1 <= MAP_HEIGHT){
+		if(map->units[row+1][col] == NULL && map->buildings[row+1][col] == NULL)
+			map->highlighted[row+1][col] = true;
+	} if(col-1 >= 0){
+		if(map->units[row][col-1] == NULL && map->buildings[row][col-1] == NULL)
+			map->highlighted[row][col-1] = true;
+	} if(col+1 <= MAP_WIDTH){
+		if(map->units[row][col+1] == NULL && map->buildings[row][col+1] == NULL)
+			map->highlighted[row][col+1]= true;
 	}
 	return true;
 }
-bool GameController::setAttackHighlighted(int row, int col){
+bool GameController::setAttackHighlighted(int row, int col, int current_player){
 	if(row-1 >= 0){
-		map->attack[row-1][col] = true;
-	} if(row+1 <= MAP_HEIGHT){
-		map->attack[row+1][col] = true;
+		if(map->units[row-1][col] != NULL && map->units[row-1][col]->getPlayer()->number() != current_player ||
+			map->buildings[row-1][col] != NULL && map->buildings[row-1][col]->getPlayer()->number() != current_player)
+			map->attack[row-1][col] = true;
+	} if(row+1 < MAP_HEIGHT){
+		if(map->units[row+1][col] != NULL && map->units[row+1][col]->getPlayer()->number() != current_player ||
+			map->buildings[row+1][col] != NULL && map->buildings[row+1][col]->getPlayer()->number() != current_player)
+			map->attack[row+1][col] = true;
 	} if(col-1 >= 0){
-		map->attack[row][col-1] = true;
-	} if(col+1 <= MAP_WIDTH){
-		map->attack[row][col+1] = true;
+		if(map->units[row][col-1] != NULL && map->units[row][col-1]->getPlayer()->number() != current_player ||
+			map->buildings[row][col-1] != NULL && map->buildings[row][col-1]->getPlayer()->number() != current_player)
+			map->attack[row][col-1] = true;
+	} if(col+1 < MAP_WIDTH){
+		if(map->units[row][col+1] != NULL && map->units[row][col+1]->getPlayer()->number() != current_player ||
+			map->buildings[row][col+1] != NULL && map->buildings[row][col+1]->getPlayer()->number() != current_player)
+			map->attack[row][col+1]= true;
 	}
 	return true;
 }

@@ -46,6 +46,12 @@
     <ClCompile Include="Constants.cpp">
       <Filter>Source Files\Model</Filter>
     </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>Source Files\View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BuildingModel.h">
@@ -90,6 +96,12 @@
     <ClInclude Include="Constants.h">
       <Filter>Header Files\Model</Filter>
     </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>Header Files\View</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -121,6 +133,12 @@
     </Filter>
     <Filter Include="Source Files\Controller">
       <UniqueIdentifier>{a3deff5c-b561-415a-b8d3-e239303bcdac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\View">
+      <UniqueIdentifier>{7e40ae6a-5951-4835-9b67-5ad29ddc883c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\View">
+      <UniqueIdentifier>{7808bb26-d3c2-4def-b0d0-3dbf21a33c1e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

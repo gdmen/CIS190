@@ -28,7 +28,7 @@ int UnitModel::getMovesNeeded(Terrain_Enum terrain){
 	return terrain_movement_mapping[terrain];
 }
 bool UnitModel::canMove(){
-	return hasMoved;
+	return !hasMoved;
 }
 void UnitModel::moved(){
 	hasMoved = true;

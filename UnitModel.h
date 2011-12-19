@@ -17,13 +17,13 @@ class UnitModel{
 		bool canMove();
 		void moved();
 		PlayerModel* getPlayer();
+		bool hasMoved;
 
 	protected:
 		map<Terrain_Enum, int> terrain_movement_mapping;
 
 	private:
 		int health, moves;
-		bool hasMoved;
 		double strength_modifier;
 		Unit_Enum type;
 		PlayerModel* player;

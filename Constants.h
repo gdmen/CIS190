@@ -15,7 +15,7 @@ enum Cost_Enum {COST_INFANTRY = 1000, COST_MECH = 3000, COST_ARTILLERY = 7000, C
 #define HEIGHT_OFFSET 28
 #define MAP_HEIGHT 5
 #define MAP_WIDTH 10
-#define MAX_DISTANCE (MAP_HEIGHT + MAP_WIDTH) * 2 //* 2 -> greatest terrain cost
+#define MAX_DISTANCE (MAP_HEIGHT + MAP_WIDTH) * 2 + 1 //* 2 -> infinite terrain cost
 #define PIECE_SIZE 32
 
 #define INFANTRY_COST 1000

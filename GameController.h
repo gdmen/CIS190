@@ -5,6 +5,7 @@
 #include "GameMapModel.h"
 #include "PlayerModel.h"
 #include "Constants.h"
+#include "View.h"
 #include <algorithm>
 #include <vector>
 
@@ -20,15 +21,16 @@ class Node{
 };
 class GameController{
 	public:
-		GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map);
-		void selectSquare(int row, int col);
-
+		GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map, View* view);
+		Menu_Enum selectSquare(int row, int col, int current_player);
+		void resetUnits();
 	private:
 		PlayerModel* p1;
 		PlayerModel* p2;
 		GameMapModel* map;
+		View* view;
 		void attack(UnitModel* attacker, UnitModel* defender);
-		bool setMoveHighlighted(int row, int col);
-		bool setAttackHighlighted(int row, int col);
+		bool setMoveHighlighted(int row, int col, int current_player);
+		bool setAttackHighlighted(int row, int col, int current_player);
 		vector<Node*> generateGraph();
 };

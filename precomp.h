@@ -5,21 +5,21 @@
 #include <ClanLib/core.h>
 #include <ClanLib/display.h>
 #include <ClanLib/gl.h>
-#include <ClanLib/gl1.h>
-#include <ClanLib/swrender.h>
-#include <ClanLib/gui.h>
-#include <ClanLib/sound.h>
-#include <ClanLib/vorbis.h>
-#include <ClanLib/mikmod.h>
-#include <ClanLib/network.h>
-#include <ClanLib/database.h>
-#include <ClanLib/sqlite.h>
-#include <ClanLib/regexp.h>
-#include <ClanLib/csslayout.h>
+//#include <ClanLib/gl1.h>
+//#include <ClanLib/swrender.h>
+//#include <ClanLib/gui.h>
+//#include <ClanLib/sound.h>
+//#include <ClanLib/vorbis.h>
+//#include <ClanLib/mikmod.h>
+//#include <ClanLib/network.h>
+//#include <ClanLib/database.h>
+//#include <ClanLib/sqlite.h>
+//#include <ClanLib/regexp.h>
+//#include <ClanLib/csslayout.h>
 #include <ClanLib/application.h>
 #include <ClanLib/GUI/Components/window.h>
-#include <ClanLib/GUI/gui_manager.h>
-#include <ClanLib/GUI/gui_component.h>
+//#include <ClanLib/GUI/gui_manager.h>
+//#include <ClanLib/GUI/gui_component.h>
 
 
 
