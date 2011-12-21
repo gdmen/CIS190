@@ -1,13 +1,21 @@
 #include "precomp.h"
 #include "UnitModel.h"
 
-UnitModel::UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p){
+UnitModel::UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p, int minRange, int maxRange){
 	this->strength_modifier = strength_modifier;
 	this->moves = moves;
 	this->type = type;
 	this->player = p;
 	this->health = 10;
 	this->hasMoved = true;
+	this->minRange = minRange;
+	this->maxRange = maxRange;
+}
+int UnitModel::getMinRange(){
+	return minRange;
+}
+int UnitModel::getMaxRange(){
+	return maxRange;
 }
 int UnitModel::getHealth(){
 	return health;

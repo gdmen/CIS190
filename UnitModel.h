@@ -7,7 +7,9 @@
 class UnitModel{
 	public:
 		UnitModel();
-		UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p);
+		UnitModel(double strength_modifier, int moves, Unit_Enum type, PlayerModel* p, int minRange, int maxRange);
+		int getMinRange();
+		int getMaxRange();
 		int getHealth();
 		void reduceHealth(int reduction);
 		int getMoves();
@@ -23,7 +25,7 @@ class UnitModel{
 		map<Terrain_Enum, int> terrain_movement_mapping;
 
 	private:
-		int health, moves;
+		int health, moves, minRange, maxRange;
 		double strength_modifier;
 		Unit_Enum type;
 		PlayerModel* player;
