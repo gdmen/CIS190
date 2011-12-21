@@ -14,7 +14,7 @@
 
 class GameMapModel{
 	public:
-		GameMapModel(PlayerModel* p1, PlayerModel* p2);
+		GameMapModel(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutral);
 		Terrain_Enum terrain[MAP_HEIGHT][MAP_WIDTH];
 		
 		UnitModel* units[MAP_HEIGHT][MAP_WIDTH];
@@ -31,7 +31,7 @@ class GameMapModel{
 
 		void populateTerrain();
 		void populateUnits();
-		void populateBuildings(PlayerModel* p1, PlayerModel* p2);
+		void populateBuildings(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutral);
 		void populateHighlighted();
 		void populateAttack();
 

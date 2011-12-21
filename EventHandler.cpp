@@ -93,6 +93,10 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 		controller->resetForTurn(currentPlayer);
 		newView->redrawStatus(p1->getWealth(),p2->getWealth());
 		newView->showPlayer(currentPlayer);
+		newView->redrawMap(map);
+		newView->highlightArea(map->highlighted);
+		newView->attackArea(map->attack);
+		window->flip();
 		menu_window->flip();
 	}
 	else if(isQuit(x,y)){
@@ -101,41 +105,40 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 	else{
 
 		switch(currentMenu){
+			case BUILD:
+				PlayerModel* curPlayer;
+				if(currentPlayer == 1)
+					curPlayer = p1;
+				else
+					curPlayer = p2;
+				if(isInfantry(x,y) && curPlayer->getWealth()>=INFANTRY_COST){
+					map->units[curRow][curCol] = new InfantryModel(curPlayer);
+					curPlayer->reduceWealth(INFANTRY_COST);
+				}
+				else if(isMech(x,y) && curPlayer->getWealth()>=MECH_COST){
+					map->units[curRow][curCol] = new MechModel(curPlayer);
+					curPlayer->reduceWealth(MECH_COST);
+				}
+				else if(isArtillery(x,y) && curPlayer->getWealth()>=ARTILLERY_COST){
+					map->units[curRow][curCol] = new ArtilleryModel(curPlayer);
+					curPlayer->reduceWealth(ARTILLERY_COST);
+				}
+				else if(isTank(x,y) && curPlayer->getWealth()>=TANK_COST){
+					map->units[curRow][curCol] = new TankModel(curPlayer);
+					curPlayer->reduceWealth(TANK_COST);
+				}
+				else break;
 
-		case BUILD:
-			PlayerModel* curPlayer;
-			if(currentPlayer == 1)
-				curPlayer = p1;
-			else
-				curPlayer = p2;
-			if(isInfantry(x,y) && curPlayer->getWealth()>=INFANTRY_COST){
-				map->units[curRow][curCol] = new InfantryModel(curPlayer);
-				curPlayer->reduceWealth(INFANTRY_COST);
-			}
-			else if(isMech(x,y) && curPlayer->getWealth()>=MECH_COST){
-				map->units[curRow][curCol] = new MechModel(curPlayer);
-				curPlayer->reduceWealth(MECH_COST);
-			}
-			else if(isArtillery(x,y) && curPlayer->getWealth()>=ARTILLERY_COST){
-				map->units[curRow][curCol] = new ArtilleryModel(curPlayer);
-				curPlayer->reduceWealth(ARTILLERY_COST);
-			}
-			else if(isTank(x,y) && curPlayer->getWealth()>=TANK_COST){
-				map->units[curRow][curCol] = new TankModel(curPlayer);
-				curPlayer->reduceWealth(TANK_COST);
-			}
-			else break;
+				newView->redrawMap(map);
+				window->flip();
+				menu_window->get_gc().clear(CL_Colorf::white);
+				newView->showPlayer(currentPlayer);
+				newView->redrawStatus(p1->getWealth(),p2->getWealth());
+				menu_window->flip();
+				break;
 
-			newView->redrawMap(map);
-			window->flip();
-			menu_window->get_gc().clear(CL_Colorf::white);
-			newView->showPlayer(currentPlayer);
-			newView->redrawStatus(p1->getWealth(),p2->getWealth());
-			menu_window->flip();
-
-
-		default:
-			break;
+			default:
+				break;
 		}
 
 		//menu_window->flip();
@@ -162,19 +165,6 @@ void EventHandler::handleMousePress(const CL_InputEvent &evt, const CL_InputStat
 	if(inMap(row,col)){
 		currentMenu = controller->selectSquare(row, col, currentPlayer);
 		
-		if(canMove(row,col)){
-			//todo
-
-		}
-		else if(canBuild(row,col)){
-			//newView->showBuildMenu();
-			//currentMenu = BUILD;
-		}
-		else{
-			//newView->showPlayer(currentPlayer);
-			//currentMenu = DEFAULT;
-		}
-		
 		
 		newView->redrawStatus(p1->getWealth(),p2->getWealth());
 		menu_window->flip();
@@ -182,30 +172,6 @@ void EventHandler::handleMousePress(const CL_InputEvent &evt, const CL_InputStat
 		newView->highlightArea(map->highlighted);
 		newView->attackArea(map->attack);
 		window->flip();
-		//	newView -> highlightArea(highlightedArea);
-		
-		/*
-		//gc->selectSquare(row, col);
-		if(canMove(row,col)){
-			//todo
-
-		}
-		else if(canBuild(row,col)){
-			newView->showBuildMenu();
-			currentMenu = BUILD;
-			newView->redrawStatus(p1->getWealth(),p2->getWealth());
-			menu_window->flip();
-		}
-		else{
-			newView->showPlayer(currentPlayer);
-			currentMenu = DEFAULT;
-			newView->redrawStatus(p1->getWealth(),p2->getWealth());
-			menu_window->flip();
-			newView-> redrawMap(map);
-			newView -> highlight(row,col);
-			window->flip();
-		}*/
-
 	}
 
 
@@ -236,10 +202,11 @@ void EventHandler::run()
 	CL_InputDevice keyboard = window->get_ic().get_keyboard();
 	p1 = new PlayerModel("Bob",1);
 	p2 = new PlayerModel("Alice",2);
-	map = new GameMapModel(p1,p2);
+	neutral = new PlayerModel("Neutral",0);
+	map = new GameMapModel(p1,p2,neutral);
 	init();
 	newView = new View(map,gc,menu_gc,p1->getWealth(),p2->getWealth());
-	controller = new GameController(p1, p2, map, newView);
+	controller = new GameController(p1, p2, neutral, map, newView);
 	window->flip();
 	menu_window->flip();
 

@@ -1,9 +1,10 @@
 #include "precomp.h"
 #include "GameController.h"
 
-GameController::GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map, View* view){
+GameController::GameController(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutral, GameMapModel* map, View* view){
 	this->p1 = p1;
 	this->p2 = p2;
+	this->neutral = neutral;
 	this->map = map;
 	this->view = view;
 }

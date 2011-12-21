@@ -18,6 +18,7 @@ private:
 	CL_DisplayWindow* menu_window;
 	PlayerModel* p1;
 	PlayerModel* p2;
+	PlayerModel* neutral;
 	int currentPlayer;
 	Menu_Enum currentMenu;
 	int curRow;

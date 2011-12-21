@@ -41,6 +41,8 @@ void View::drawBuildings(BuildingModel* buildings[MAP_HEIGHT][MAP_WIDTH]){
 	CL_PixelBuffer p2_base = CL_PNGProvider::load("tiles/b_factory.png");
 	CL_PixelBuffer p2_city = CL_PNGProvider::load("tiles/b_city.png");
 	CL_PixelBuffer p2_hq = CL_PNGProvider::load("tiles/b_hq.png");
+	CL_PixelBuffer n_base = CL_PNGProvider::load("tiles/n_factory.png");
+	CL_PixelBuffer n_city = CL_PNGProvider::load("tiles/n_city.png");
 	for(int i = 0;i < MAP_HEIGHT;++i)
 	{
 		for(int j = 0;j<MAP_WIDTH;++j)
@@ -61,6 +63,11 @@ void View::drawBuildings(BuildingModel* buildings[MAP_HEIGHT][MAP_WIDTH]){
 				else if(buildings[i][j]->getType() == HEADQUARTERS)
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p2_hq,rect);
 
+			}else if(buildings[i][j] && ((buildings[i][j]->getPlayer())->number())==0){
+				if(buildings[i][j]->getType() == BASE)
+					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,n_base,rect);
+				else if(buildings[i][j]->getType() == CITY)
+					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,n_city,rect);
 			}
 		}
 	}

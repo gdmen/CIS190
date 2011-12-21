@@ -21,12 +21,13 @@ class Node{
 };
 class GameController{
 	public:
-		GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map, View* view);
+		GameController(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutral, GameMapModel* map, View* view);
 		Menu_Enum selectSquare(int row, int col, int current_player);
 		void resetForTurn(int current_player);
 	private:
 		PlayerModel* p1;
 		PlayerModel* p2;
+		PlayerModel* neutral;
 		GameMapModel* map;
 		View* view;
 		void attack(UnitModel* attacker, UnitModel* defender);

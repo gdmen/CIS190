@@ -56,7 +56,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <PrecompiledHeaderFile>precomp.h</PrecompiledHeaderFile>
     </ClCompile>
   </ItemDefinitionGroup>
@@ -73,6 +73,7 @@
     <ClCompile Include="BuildingModel.cpp" />
     <ClCompile Include="CityModel.cpp" />
     <ClCompile Include="Constants.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameMapModel.cpp" />
     <ClCompile Include="HeadquartersModel.cpp" />
@@ -83,6 +84,7 @@
     <ClCompile Include="precomp.cpp" />
     <ClCompile Include="TankModel.cpp" />
     <ClCompile Include="UnitModel.cpp" />
+    <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArtilleryModel.h" />
@@ -90,6 +92,7 @@
     <ClInclude Include="BuildingModel.h" />
     <ClInclude Include="CityModel.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="EventHandler.h" />
     <ClInclude Include="GameController.h" />
     <ClInclude Include="GameMapModel.h" />
     <ClInclude Include="HeadquartersModel.h" />
@@ -99,6 +102,7 @@
     <ClInclude Include="precomp.h" />
     <ClInclude Include="TankModel.h" />
     <ClInclude Include="UnitModel.h" />
+    <ClInclude Include="View.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
