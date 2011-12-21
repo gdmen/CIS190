@@ -211,6 +211,7 @@ bool GameController::setMoveHighlighted(int row, int col, int current_player){
 	return true;
 }
 bool GameController::setAttackHighlighted(int row, int col, int current_player){
+	UnitModel* unit = map->units[row][col];
 	if(row-1 >= 0){
 		if(map->units[row-1][col] != NULL && map->units[row-1][col]->getPlayer()->number() != current_player)// ||
 			//map->buildings[row-1][col] != NULL && map->buildings[row-1][col]->getPlayer()->number() != current_player)

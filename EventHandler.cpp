@@ -86,7 +86,7 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 	s = out.str();
 	wstring stemp = s2ws(s);
 	LPCWSTR str = stemp.c_str();
-	OutputDebugString(str);
+	//OutputDebugString(str);
 	if(endTurn(x,y)){
 		if(currentPlayer == 1) currentPlayer = 2;
 		else currentPlayer = 1;
