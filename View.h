@@ -8,12 +8,15 @@ private:
 	//UnitModel* units[MAP_HEIGHT][MAP_WIDTH];
 	//BuildingModel* buildings[MAP_HEIGHT][MAP_WIDTH];
 	CL_Rect rect;
+	CL_Rect health_rect;
 	CL_GraphicContext gc;
 	CL_GraphicContext menu_gc;
 
 
 public:
 	View(GameMapModel* map,  CL_GraphicContext& _gc, CL_GraphicContext& _menugc, int p1, int p2);
+
+	CL_PixelBuffer getHealth(int health);
 
 	void drawTerrain(Terrain_Enum terrains[MAP_HEIGHT][MAP_WIDTH]);
 

@@ -6,6 +6,7 @@ View::View(GameMapModel* map,  CL_GraphicContext& _gc, CL_GraphicContext& _menug
 	menu_gc = _menugc;
 
 	rect = CL_Rect(0,0,PIECE_SIZE,PIECE_SIZE);
+	health_rect = CL_Rect(0,0,8,8);
 	drawTerrain(map->terrain);
 	drawBuildings(map->buildings);
 	drawUnits(map->units);
@@ -74,6 +75,29 @@ void View::drawBuildings(BuildingModel* buildings[MAP_HEIGHT][MAP_WIDTH]){
 
 }
 
+CL_PixelBuffer View::getHealth(int health){
+	if(health == 1)
+		return CL_PNGProvider::load("health/one.png");
+	if(health == 2)
+		return CL_PNGProvider::load("health/two.png");
+	if(health == 3)
+		return CL_PNGProvider::load("health/three.png");
+	if(health == 4)
+		return CL_PNGProvider::load("health/four.png");
+	if(health == 5)
+		return CL_PNGProvider::load("health/five.png");
+	if(health == 6)
+		return CL_PNGProvider::load("health/six.png");
+	if(health == 7)
+		return CL_PNGProvider::load("health/seven.png");
+	if(health == 8)
+		return CL_PNGProvider::load("health/eight.png");
+	if(health == 9)
+		return CL_PNGProvider::load("health/nine.png");
+	else
+		return CL_PNGProvider::load("health/ten.png");
+	
+}
 void View::drawUnits(UnitModel* units[MAP_HEIGHT][MAP_WIDTH]){
 	CL_PixelBuffer p1_infantry = CL_PNGProvider::load("units/r_infantry.png");
 	CL_PixelBuffer p1_mech = CL_PNGProvider::load("units/r_bazooka.png");
@@ -83,29 +107,42 @@ void View::drawUnits(UnitModel* units[MAP_HEIGHT][MAP_WIDTH]){
 	CL_PixelBuffer p2_mech = CL_PNGProvider::load("units/b_bazooka.png");
 	CL_PixelBuffer p2_artillery = CL_PNGProvider::load("units/b_artillery.png");
 	CL_PixelBuffer p2_tank = CL_PNGProvider::load("units/b_tank.png");
+
+	
 	for(int i = 0;i < MAP_HEIGHT;++i)
 	{
 		for(int j = 0;j<MAP_WIDTH;++j)
 		{
 			if(units[i][j] && ((units[i][j]->getPlayer())->number())==1){
-				if(units[i][j]->getType() == INFANTRY)
+				if(units[i][j]->getType() == INFANTRY){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p1_infantry,rect);
-				else if(units[i][j]->getType() == MECH)
+					
+				}
+				else if(units[i][j]->getType() == MECH){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p1_mech,rect);
-				else if(units[i][j]->getType() == ARTILLERY)
+				}
+				else if(units[i][j]->getType() == ARTILLERY){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p1_artillery,rect);
-				else if(units[i][j]->getType() == TANK)
+				}
+				else if(units[i][j]->getType() == TANK){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p1_tank,rect);
+				}
+				gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,getHealth(units[i][j]->getHealth()),health_rect);
 			}
 			if(units[i][j] && ((units[i][j]->getPlayer())->number())==2){
-				if(units[i][j]->getType() == INFANTRY)
+				if(units[i][j]->getType() == INFANTRY){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p2_infantry,rect);
-				else if(units[i][j]->getType() == MECH)
+				}
+				else if(units[i][j]->getType() == MECH){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p2_mech,rect);
-				else if(units[i][j]->getType() == ARTILLERY)
+				}
+				else if(units[i][j]->getType() == ARTILLERY){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p2_artillery,rect);
-				else if(units[i][j]->getType() == TANK)
+				}
+				else if(units[i][j]->getType() == TANK){
 					gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,p2_tank,rect);
+				}
+				gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,getHealth(units[i][j]->getHealth()),health_rect);
 			}
 		}
 	}
