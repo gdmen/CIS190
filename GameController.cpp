@@ -45,7 +45,7 @@ Menu_Enum GameController::selectSquare(int row, int col, int current_player){
 			map->populateAttack();
 			map->setSelected(-1,-1);
 		}
-	}else if(map->highlighted[row][col]){
+	}else if(map->highlighted[row][col] && (building == NULL || building->getPlayer()->number() != current_player)){
 		if(map->getRowSelected() >= 0){
 			unit = map->units[map->getRowSelected()][map->getColSelected()];
 			if(unit != NULL && unit->canMove()){
