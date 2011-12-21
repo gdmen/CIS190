@@ -1,6 +1,6 @@
 #pragma once
 
-enum Terrain_Enum {ROAD, PLAIN, MOUNTAIN};
+enum Terrain_Enum {ROAD, PLAIN, MOUNTAIN, ROAD2};
 enum Unit_Enum {INFANTRY, MECH, ARTILLERY, TANK};
 enum Building_Enum {HEADQUARTERS, BASE, CITY};
 enum Menu_Enum {DEFAULT, ACTION, BUILD};
@@ -13,8 +13,8 @@ enum Cost_Enum {COST_INFANTRY = 1000, COST_MECH = 3000, COST_ARTILLERY = 7000, C
 
 #define WIDTH_OFFSET 7
 #define HEIGHT_OFFSET 28
-#define MAP_HEIGHT 5
-#define MAP_WIDTH 10
+#define MAP_HEIGHT 10
+#define MAP_WIDTH 16
 #define MAX_DISTANCE (MAP_HEIGHT + MAP_WIDTH) * 2 + 1 //* 2 -> infinite terrain cost
 #define PIECE_SIZE 32
 

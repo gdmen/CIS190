@@ -20,6 +20,7 @@ void View::drawTerrain(Terrain_Enum terrains[MAP_HEIGHT][MAP_WIDTH]){
 	CL_PixelBuffer plain = CL_PNGProvider::load("tiles/plain.png");
 	CL_PixelBuffer mountain = CL_PNGProvider::load("tiles/mountain1.png");
 	CL_PixelBuffer road = CL_PNGProvider::load("tiles/road_h.png");
+	CL_PixelBuffer road2 = CL_PNGProvider::load("tiles/road_v.png");
 
 	for(int i = 0;i < MAP_HEIGHT;++i)
 	{
@@ -31,6 +32,8 @@ void View::drawTerrain(Terrain_Enum terrains[MAP_HEIGHT][MAP_WIDTH]){
 				gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,mountain,rect);
 			else if(terrains[i][j] == ROAD)
 				gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,road,rect);
+			else if(terrains[i][j] == ROAD2)
+				gc.draw_pixels((float)j*PIECE_SIZE,(float)i*PIECE_SIZE,road2,rect);
 		}
 	}
 }

@@ -12,9 +12,24 @@ GameMapModel::GameMapModel(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutra
 void GameMapModel::populateTerrain(){
 	for(int i = 0; i<MAP_HEIGHT;++i)
 			for(int j = 0;j<MAP_WIDTH;++j){
+				if(i == 0 || i == MAP_HEIGHT-1){
+					if(j>=3 && j < MAP_WIDTH-3)
+						terrain[i][j] = MOUNTAIN;
+					else
+						terrain[i][j] = PLAIN;
+				}
+				else if((i == 1 || i == MAP_HEIGHT-2) && (j >= 1 && j <= MAP_WIDTH-2))
+					terrain[i][j] = ROAD;
+				else if 	((j == 1 || j == MAP_WIDTH-2)	&& (i >= 1 && i < MAP_HEIGHT-1))
+					terrain[i][j] = ROAD2;
+			else
 				terrain[i][j] = PLAIN;
 				
 			}
+		terrain[MAP_HEIGHT/2-1][MAP_WIDTH/2-1] = MOUNTAIN;
+		terrain[MAP_HEIGHT/2][MAP_WIDTH/2-1] = MOUNTAIN;
+		terrain[MAP_HEIGHT/2-1][MAP_WIDTH/2] = MOUNTAIN;
+		terrain[MAP_HEIGHT/2][MAP_WIDTH/2] = MOUNTAIN;
 }
 void GameMapModel::populateUnits(){
 	for(int i = 0; i<MAP_HEIGHT;++i)
@@ -49,10 +64,26 @@ void GameMapModel::populateBuildings(PlayerModel* p1, PlayerModel* p2, PlayerMod
 	p2->addBuilding(buildings[MAP_HEIGHT-3][MAP_WIDTH-1]);
 	p2->addBuilding(buildings[MAP_HEIGHT-1][MAP_WIDTH-3]);
 
-	buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-1] = new CityModel(1000,neutral);
+	buildings[2][2] = new CityModel(1000,neutral);
+	buildings[2][MAP_WIDTH-3] = new CityModel(1000,neutral);
+	buildings[MAP_HEIGHT-3][2] = new CityModel(1000,neutral);
+	buildings[MAP_HEIGHT-3][MAP_WIDTH-3] = new CityModel(1000,neutral);
 	buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-2] = new BaseModel(1000,neutral);
-	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-1]);
-	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-2]);
+	buildings[MAP_HEIGHT/2][MAP_WIDTH/2-2] = new BaseModel(1000,neutral);
+	buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2+1] = new BaseModel(1000,neutral);
+	buildings[MAP_HEIGHT/2][MAP_WIDTH/2+1] = new BaseModel(1000,neutral);
+	buildings[0][MAP_WIDTH-1] = new BaseModel(1000,neutral);
+	buildings[MAP_HEIGHT-1][0] = new BaseModel(1000,neutral);
+	neutral->addBuilding(buildings[2][2]);
+	neutral->addBuilding(buildings[2][MAP_WIDTH-3]);
+	neutral->addBuilding(buildings[MAP_HEIGHT-3][2]);
+	neutral->addBuilding(buildings[MAP_HEIGHT-3][MAP_WIDTH-3]);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2][MAP_WIDTH/2-2]);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2][MAP_WIDTH/2-2]);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2+1]);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2][MAP_WIDTH/2+1]);
+	neutral->addBuilding(buildings[0][MAP_WIDTH-1]);
+	neutral->addBuilding(buildings[MAP_HEIGHT-1][0]);
 }
 void GameMapModel::populateHighlighted(){
 	for(int i = 0; i<MAP_HEIGHT;++i)

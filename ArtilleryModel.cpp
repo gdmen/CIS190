@@ -9,6 +9,7 @@ ArtilleryModel::ArtilleryModel(PlayerModel* p)
 			2,
 			3){
 	terrain_movement_mapping[ROAD] = 1;
+	terrain_movement_mapping[ROAD2] = 1;
 	terrain_movement_mapping[PLAIN] = 2;
-	terrain_movement_mapping[MOUNTAIN] = -1;
+	terrain_movement_mapping[MOUNTAIN] = 10;
 }
