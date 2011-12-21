@@ -238,6 +238,15 @@ void View::showScore(int p1, int p2){
 	font_tahoma.draw_text(menu_gc, 150,160, score2, CL_Colorf::black);
 }
 
+void View::showPlayerWon(int player){
+	CL_PixelBuffer menu;
+	CL_Rect area(0,0,300,150);
+	if(player == 1)
+	 menu = CL_PNGProvider::load("menus/p1won.png");
+	else
+		menu = CL_PNGProvider::load("menus/p2won.png");
+	menu_gc.draw_pixels(0,0,menu,area);
+}
 void View::redrawStatus(int p1, int p2){
 	showScore(p1, p2);
 	showButtons();

@@ -24,6 +24,7 @@ class GameController{
 		GameController(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutral, GameMapModel* map, View* view);
 		Menu_Enum selectSquare(int row, int col, int current_player);
 		void resetForTurn(int current_player);
+		bool hasWon(int current_player);
 	private:
 		PlayerModel* p1;
 		PlayerModel* p2;

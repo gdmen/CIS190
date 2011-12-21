@@ -8,6 +8,7 @@ using namespace std;
 class EventHandler
 {
 private:
+	bool isEnd;
 	bool quit;
 	CL_Slot mousepress;
 	CL_Slot menu_mousepress;

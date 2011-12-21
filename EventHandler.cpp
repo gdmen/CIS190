@@ -88,6 +88,16 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 	LPCWSTR str = stemp.c_str();
 	//OutputDebugString(str);
 	if(endTurn(x,y)){
+		if(controller->hasWon(currentPlayer)){
+			isEnd = true;
+			newView->showPlayerWon(currentPlayer);
+			newView->redrawStatus(p1->getWealth(),p2->getWealth());
+			newView->redrawMap(map);
+			window->flip();
+			menu_window->flip();
+			return;
+		}
+		else{
 		if(currentPlayer == 1) currentPlayer = 2;
 		else currentPlayer = 1;
 		controller->resetForTurn(currentPlayer);
@@ -98,12 +108,14 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 		newView->attackArea(map->attack);
 		window->flip();
 		menu_window->flip();
+		}
 	}
 	else if(isQuit(x,y)){
 		quit = true;
 	}
 	else{
-
+		if(isEnd)
+			return;
 		switch(currentMenu){
 			case BUILD:
 				PlayerModel* curPlayer;
@@ -146,6 +158,7 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 }
 void EventHandler::handleMousePress(const CL_InputEvent &evt, const CL_InputState &state)
 {
+	if(isEnd) return;
 	CL_Point pt = evt.mouse_pos;
 	int x = pt.x;
 	int y = pt.y;
@@ -179,6 +192,7 @@ void EventHandler::handleMousePress(const CL_InputEvent &evt, const CL_InputStat
 void EventHandler::init(){
 	currentPlayer = 1;
 	p1->increaseWealth();
+	isEnd = false;
 
 }
 void EventHandler::run()

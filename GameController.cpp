@@ -8,6 +8,31 @@ GameController::GameController(PlayerModel* p1, PlayerModel* p2, PlayerModel* ne
 	this->map = map;
 	this->view = view;
 }
+
+bool GameController::hasWon(int current_player){
+	int otherPlayer;
+	if(current_player == 1) otherPlayer = 2;
+	else otherPlayer = 1;
+	int canProduce = 0;
+	int numUnits = 0;
+	int numHQ = 0;
+	for(int i = 0; i < MAP_HEIGHT; ++i){
+		for(int j = 0; j < MAP_WIDTH; ++j){
+			if(map->buildings[i][j]){
+				if(map->buildings[i][j]->getType() == HEADQUARTERS && map->buildings[i][j]->getPlayer()->number()==current_player){
+					numHQ++;
+					if(numHQ>1) return true;
+				}
+				if(map->buildings[i][j]->getType() == BASE && map->buildings[i][j]->getPlayer()->number() == otherPlayer)
+					canProduce++;
+				}
+			if(map->units[i][j] && map->units[i][j]->getPlayer()->number() == otherPlayer)
+				numUnits++;
+		}
+	}
+	return (canProduce == 0 && numUnits == 0);				
+}
+
 void GameController::resetForTurn(int current_player){
 	resetUnits();
 	if(current_player == 1){

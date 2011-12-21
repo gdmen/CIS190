@@ -42,6 +42,8 @@ public:
 
 	void showActionMenu();
 
+	void showPlayerWon(int player);
+
 	void showScore(int p1, int p2);
 
 	void redrawStatus(int p1, int p2);

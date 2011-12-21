@@ -78,7 +78,7 @@ void GameMapModel::populateBuildings(PlayerModel* p1, PlayerModel* p2, PlayerMod
 	neutral->addBuilding(buildings[2][MAP_WIDTH-3]);
 	neutral->addBuilding(buildings[MAP_HEIGHT-3][2]);
 	neutral->addBuilding(buildings[MAP_HEIGHT-3][MAP_WIDTH-3]);
-	neutral->addBuilding(buildings[MAP_HEIGHT/2][MAP_WIDTH/2-2]);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-2]);
 	neutral->addBuilding(buildings[MAP_HEIGHT/2][MAP_WIDTH/2-2]);
 	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2+1]);
 	neutral->addBuilding(buildings[MAP_HEIGHT/2][MAP_WIDTH/2+1]);
