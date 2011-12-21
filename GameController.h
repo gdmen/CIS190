@@ -31,6 +31,7 @@ class GameController{
 		GameMapModel* map;
 		View* view;
 		void attack(UnitModel* attacker, UnitModel* defender);
+		void capture(UnitModel* attacker, BuildingModel* building, int row, int col);
 		bool setMoveHighlighted(int row, int col, int current_player);
 		bool setAttackHighlighted(int row, int col, int current_player);
 		void resetUnits();

@@ -16,6 +16,15 @@ int PlayerModel::number(){
 void PlayerModel::addBuilding(BuildingModel* b){
 	buildings.push_back(b);
 }
+void PlayerModel::removeBuilding(BuildingModel* b){
+	unsigned int i = 0;
+	for(i = 0; i < buildings.size(); i++){
+		if(buildings.at(i) == b){
+			break;
+		}
+	}
+	buildings.erase(buildings.begin() + i);
+}
 //sums income from all buildings
 int PlayerModel::getWealth(){
 	return wealth;

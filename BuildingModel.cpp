@@ -13,6 +13,9 @@ int BuildingModel::getIncome(){
 PlayerModel* BuildingModel::getPlayer(){
 	return player;
 }
+void BuildingModel::setPlayer(PlayerModel* p){
+	this->player = p;
+}
 Building_Enum BuildingModel::getType(){
 	return type;
 }

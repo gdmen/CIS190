@@ -9,6 +9,7 @@ class BuildingModel{
 		BuildingModel(Building_Enum type, int income, PlayerModel* p);
 		int getIncome();
 		PlayerModel* getPlayer();
+		void setPlayer(PlayerModel* p);
 		Building_Enum getType();
 
 	private:
