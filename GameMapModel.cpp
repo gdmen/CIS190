@@ -49,8 +49,10 @@ void GameMapModel::populateBuildings(PlayerModel* p1, PlayerModel* p2, PlayerMod
 	p2->addBuilding(buildings[MAP_HEIGHT-3][MAP_WIDTH-1]);
 	p2->addBuilding(buildings[MAP_HEIGHT-1][MAP_WIDTH-3]);
 
-	buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-1] = new HeadquartersModel(1000,neutral);
+	buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-1] = new CityModel(1000,neutral);
 	buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-2] = new BaseModel(1000,neutral);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-1]);
+	neutral->addBuilding(buildings[MAP_HEIGHT/2-1][MAP_WIDTH/2-2]);
 }
 void GameMapModel::populateHighlighted(){
 	for(int i = 0; i<MAP_HEIGHT;++i)

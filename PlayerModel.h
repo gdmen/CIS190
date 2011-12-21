@@ -11,6 +11,7 @@ class PlayerModel{
 		string getName();
 		int number();
 		void addBuilding(BuildingModel* b);
+		void removeBuilding(BuildingModel* b);
 		//sums income from all buildings
 		int getWealth();
 		int calculateIncome();
