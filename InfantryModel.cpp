@@ -2,7 +2,7 @@
 #include "InfantryModel.h"
 
 InfantryModel::InfantryModel(PlayerModel* p)
-: UnitModel(1/*TODO: edit strength modifiers*/,
+: UnitModel(0.5/*TODO: edit strength modifiers*/,
 			3,
 			INFANTRY,
 			p){

@@ -7,7 +7,11 @@ GameController::GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* m
 	this->map = map;
 	this->view = view;
 }
-
+void GameController::resetForTurn(int current_player){
+	resetUnits();
+	p1->increaseWealth();
+	p2->increaseWealth();
+}
 void GameController::resetUnits(){
 	for(int row = 0; row < MAP_HEIGHT; row++){
 		for(int col = 0; col < MAP_WIDTH; col++){
@@ -29,13 +33,14 @@ Menu_Enum GameController::selectSquare(int row, int col, int current_player){
 			map->populateAttack();
 			map->setSelected(row, col);
 			setMoveHighlighted(row, col, current_player);
+			setAttackHighlighted(row, col, current_player);
 		}else{
 			map->populateHighlighted();
 			map->populateAttack();
 			map->setSelected(-1,-1);
 		}
 	}else if(map->highlighted[row][col]){
-		if(map->getRowSelected() > 0){
+		if(map->getRowSelected() >= 0){
 			unit = map->units[map->getRowSelected()][map->getColSelected()];
 			if(unit != NULL && unit->canMove()){
 				map->units[row][col] = unit;
@@ -81,22 +86,27 @@ Menu_Enum GameController::selectSquare(int row, int col, int current_player){
 		map->setSelected(-1,-1);
 	}
 	map->highlighted[row][col] = true;
-	if(menu_type == DEFAULT)
+	if(menu_type == DEFAULT){
 		view->showPlayer(current_player);
+	}
 	return menu_type;
 }
 
 void GameController::attack(UnitModel* attacker, UnitModel* defender){
-	defender->reduceHealth(	(int)(attacker->getHealth() *
-							attacker->getStrengthModifier()));
+	if(attacker != NULL && defender != NULL){
+		defender->reduceHealth(	(int)(attacker->getHealth() * attacker->getStrengthModifier()));
+	}
 }
-vector<Node*> GameController::generateGraph(){
+vector<Node*> GameController::generateGraph(int current_player){
 	vector<Node*> graph;
 	Node* reference_array[MAP_HEIGHT][MAP_WIDTH];
 	for(int row = 0; row < MAP_HEIGHT; row++){
 		for(int col = 0; col < MAP_WIDTH; col++){
 			reference_array[row][col] = NULL;
-			if(map->units[row][col] != NULL){
+			if(map->units[row][col] != NULL && (map->getRowSelected() != row || map->getColSelected() != col)
+				|| map->buildings[row][col] != NULL && map->buildings[row][col]->getPlayer()->number() != current_player){
+				reference_array[row][col] = NULL;
+			}else{
 				Node* n = new Node();
 				n->row = row;
 				n->col = col;
@@ -106,29 +116,22 @@ vector<Node*> GameController::generateGraph(){
 			}
 		}
 	}
-
+	
 	reference_array[map->getRowSelected()][map->getColSelected()]->distance = 0;
 
 	for(int row = 0; row < MAP_HEIGHT; row++){
 		for(int col = 0; col < MAP_WIDTH; col++){
 			Node* n = reference_array[row][col];
 			if(n != NULL){
-				if(row-1 >= 0){
-					if(map->units[row-1][col] != NULL){
-						n->neighbors.push_back(reference_array[row-1][col]);
-					}
-				} if(row+1 <= MAP_HEIGHT){
-					if(map->units[row+1][col] != NULL){
-						n->neighbors.push_back(reference_array[row+1][col]);
-					}
-				} if(col-1 >= 0){
-					if(map->units[row][col-1] != NULL){
-						n->neighbors.push_back(reference_array[row][col-1]);
-					}
-				} if(col+1 <= MAP_WIDTH){
-					if(map->units[row][col+1] != NULL){
-						n->neighbors.push_back(reference_array[row][col+1]);
-					}
+				graph.push_back(n);
+				if(row-1 >= 0 && reference_array[row-1][col] != NULL){
+					n->neighbors.push_back(reference_array[row-1][col]);
+				} if(row+1 < MAP_HEIGHT && reference_array[row+1][col] != NULL){
+					n->neighbors.push_back(reference_array[row+1][col]);
+				} if(col-1 >= 0 && reference_array[row][col-1] != NULL){
+					n->neighbors.push_back(reference_array[row][col-1]);
+				} if(col+1 < MAP_WIDTH && reference_array[row][col+1] != NULL){
+					n->neighbors.push_back(reference_array[row][col+1]);
 				}
 			}
 		}
@@ -150,9 +153,8 @@ int getSmallestDistanceIndex(vector<Node*> graph){
 }
 
 bool GameController::setMoveHighlighted(int row, int col, int current_player){
-	/*
 	UnitModel* unit = map->units[map->getRowSelected()][map->getColSelected()];
-	vector<Node*> graph = generateGraph();
+	vector<Node*> graph = generateGraph(current_player);
 	vector<Node*> result;
 	while(graph.size() > 0){
 		int u_index = getSmallestDistanceIndex(graph);
@@ -175,23 +177,9 @@ bool GameController::setMoveHighlighted(int row, int col, int current_player){
 	}
 	for(unsigned int i = 0; i < result.size(); i++){
 		Node* n = result.at(i);
-		if(n->distance < unit->getMoves()){
+		if(n->distance <= unit->getMoves()){
 			map->highlighted[n->row][n->col] = true;
 		}
-	}
-	*/
-	if(row-1 >= 0){
-		if(map->units[row-1][col] == NULL && map->buildings[row-1][col] == NULL)
-			map->highlighted[row-1][col] = true;
-	} if(row+1 <= MAP_HEIGHT){
-		if(map->units[row+1][col] == NULL && map->buildings[row+1][col] == NULL)
-			map->highlighted[row+1][col] = true;
-	} if(col-1 >= 0){
-		if(map->units[row][col-1] == NULL && map->buildings[row][col-1] == NULL)
-			map->highlighted[row][col-1] = true;
-	} if(col+1 <= MAP_WIDTH){
-		if(map->units[row][col+1] == NULL && map->buildings[row][col+1] == NULL)
-			map->highlighted[row][col+1]= true;
 	}
 	return true;
 }

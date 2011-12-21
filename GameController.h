@@ -23,7 +23,7 @@ class GameController{
 	public:
 		GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* map, View* view);
 		Menu_Enum selectSquare(int row, int col, int current_player);
-		void resetUnits();
+		void resetForTurn(int current_player);
 	private:
 		PlayerModel* p1;
 		PlayerModel* p2;
@@ -32,5 +32,6 @@ class GameController{
 		void attack(UnitModel* attacker, UnitModel* defender);
 		bool setMoveHighlighted(int row, int col, int current_player);
 		bool setAttackHighlighted(int row, int col, int current_player);
-		vector<Node*> generateGraph();
+		void resetUnits();
+		vector<Node*> generateGraph(int current_player);
 };

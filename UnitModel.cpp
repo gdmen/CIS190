@@ -7,7 +7,7 @@ UnitModel::UnitModel(double strength_modifier, int moves, Unit_Enum type, Player
 	this->type = type;
 	this->player = p;
 	this->health = 10;
-	this->hasMoved = false;
+	this->hasMoved = true;
 }
 int UnitModel::getHealth(){
 	return health;

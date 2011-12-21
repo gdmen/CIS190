@@ -77,7 +77,6 @@ bool EventHandler::isTank(int x, int y){
 }
 void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_InputState &state)
 {
-
 	CL_Point pt = evt.mouse_pos;
 	int x = pt.x;
 	int y = pt.y;
@@ -91,7 +90,7 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 	if(endTurn(x,y)){
 		if(currentPlayer == 1) currentPlayer = 2;
 		else currentPlayer = 1;
-		controller->resetUnits();
+		controller->resetForTurn(currentPlayer);
 		newView->redrawStatus(p1->getWealth(),p2->getWealth());
 		newView->showPlayer(currentPlayer);
 		menu_window->flip();
@@ -122,19 +121,19 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 				curPlayer = p1;
 			else
 				curPlayer = p2;
-			if(isInfantry(x,y) && curPlayer->getWealth()>INFANTRY_COST){
+			if(isInfantry(x,y) && curPlayer->getWealth()>=INFANTRY_COST){
 				map->units[curRow][curCol] = new InfantryModel(curPlayer);
 				curPlayer->reduceWealth(INFANTRY_COST);
 			}
-			else if(isMech(x,y) && curPlayer->getWealth()>MECH_COST){
+			else if(isMech(x,y) && curPlayer->getWealth()>=MECH_COST){
 				map->units[curRow][curCol] = new MechModel(curPlayer);
 				curPlayer->reduceWealth(MECH_COST);
 			}
-			else if(isArtillery(x,y) && curPlayer->getWealth()>ARTILLERY_COST){
+			else if(isArtillery(x,y) && curPlayer->getWealth()>=ARTILLERY_COST){
 				map->units[curRow][curCol] = new ArtilleryModel(curPlayer);
 				curPlayer->reduceWealth(ARTILLERY_COST);
 			}
-			else if(isTank(x,y) && curPlayer->getWealth()>TANK_COST){
+			else if(isTank(x,y) && curPlayer->getWealth()>=TANK_COST){
 				map->units[curRow][curCol] = new TankModel(curPlayer);
 				curPlayer->reduceWealth(TANK_COST);
 			}

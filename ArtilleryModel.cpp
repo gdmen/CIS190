@@ -2,7 +2,7 @@
 #include "ArtilleryModel.h"
 
 ArtilleryModel::ArtilleryModel(PlayerModel* p)
-: UnitModel(1/*TODO: edit strength modifiers*/,
+: UnitModel(0.8/*TODO: edit strength modifiers*/,
 			5,
 			ARTILLERY,
 			p){
