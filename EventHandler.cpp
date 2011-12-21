@@ -102,19 +102,6 @@ void EventHandler::handleMenuMousePress(const CL_InputEvent &evt, const CL_Input
 
 		switch(currentMenu){
 
-		case ACTION: 
-			if(isWait(x,y)){
-				//grey out unit, clear highlighting, redraw map, redraw menu default
-				newView->redrawMap(map);
-				window->flip();
-			}
-			else if(isAttack(x,y)){
-				//if it can attack, redraw map, calculate attack highlighting, redraw menu
-			}
-			else if(isCapture(x,y)){
-				//if it can capture, update #buildings captured, update building array, redraw map/menu/clear highlighting
-			}
-			break;
 		case BUILD:
 			PlayerModel* curPlayer;
 			if(currentPlayer == 1)
@@ -226,7 +213,6 @@ void EventHandler::handleMousePress(const CL_InputEvent &evt, const CL_InputStat
 void EventHandler::init(){
 	currentPlayer = 1;
 	p1->increaseWealth();
-	p2->increaseWealth();
 
 }
 void EventHandler::run()

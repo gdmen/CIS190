@@ -9,8 +9,13 @@ GameController::GameController(PlayerModel* p1, PlayerModel* p2, GameMapModel* m
 }
 void GameController::resetForTurn(int current_player){
 	resetUnits();
-	p1->increaseWealth();
-	p2->increaseWealth();
+	if(current_player == 1){
+		p1->increaseWealth();
+	}else if(current_player == 2){
+		p2->increaseWealth();
+	}
+	map->populateHighlighted();
+	map->populateAttack();
 }
 void GameController::resetUnits(){
 	for(int row = 0; row < MAP_HEIGHT; row++){
@@ -55,6 +60,8 @@ Menu_Enum GameController::selectSquare(int row, int col, int current_player){
 			}
 		}
 	}else if(map->attack[row][col]){
+		map->populateHighlighted();
+		map->populateAttack();
 		UnitModel* atk_unit = map->units[map->getRowSelected()][map->getColSelected()];
 		attack(atk_unit, unit);
 		bool continue_atk = true;
