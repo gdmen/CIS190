@@ -68,9 +68,8 @@ Menu_Enum GameController::selectSquare(int row, int col, int current_player){
 		}else{
 			map->populateHighlighted();
 			map->populateAttack();
-			map->setSelected(-1,-1);
 		}
-	}else if(map->highlighted[row][col] && (building == NULL || (building->getPlayer()->number() != current_player || building->getType() != BASE))){
+	}else if(map->highlighted[row][col] && (building == NULL || (building->getPlayer()->number() != current_player || building->getType() != BASE || (map->getRowSelected() >= 0 && map->getRowSelected() < MAP_HEIGHT && map->getColSelected() >= 0 && map->getColSelected() < MAP_WIDTH && map->units[map->getRowSelected()][map->getColSelected()] != NULL)))){
 		if(map->getRowSelected() >= 0){
 			unit = map->units[map->getRowSelected()][map->getColSelected()];
 			if(unit != NULL && unit->canMove()){
@@ -79,7 +78,9 @@ Menu_Enum GameController::selectSquare(int row, int col, int current_player){
 				unit->moved();
 				map->populateHighlighted();
 				map->populateAttack();
-				setAttackHighlighted(row, col, current_player);
+				if(unit->getType() != ARTILLERY){
+					setAttackHighlighted(row, col, current_player);
+				}
 				map->setSelected(row, col);
 				view->showPlayer(current_player);
 				return menu_type;
