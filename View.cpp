@@ -247,10 +247,10 @@ void View::showScore(int p1, int p2){
 	menu_gc.draw_pixels(0,150.0,status,area);
 	CL_Font font_century(gc,"Century",17);
 	CL_Font arial(gc, "Arial Black",18);
-	arial.draw_text(menu_gc, 5, 170, "Player 1 : ", CL_Colorf::black);
+	arial.draw_text(menu_gc, 35, 170, "Red : ", CL_Colorf::black);
 	font_century.draw_text(menu_gc, 75,170, score1, CL_Colorf::black);
-	arial.draw_text(menu_gc, 155, 170, "Player 2 : ", CL_Colorf::black);
-	font_century.draw_text(menu_gc, 225,170, score2, CL_Colorf::black);
+	arial.draw_text(menu_gc, 185, 170, "Blue : ", CL_Colorf::black);
+	font_century.draw_text(menu_gc, 230,170, score2, CL_Colorf::black);
 }
 
 void View::showPlayerWon(int player){
