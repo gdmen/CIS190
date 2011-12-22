@@ -12,13 +12,8 @@ GameMapModel::GameMapModel(PlayerModel* p1, PlayerModel* p2, PlayerModel* neutra
 void GameMapModel::populateTerrain(){
 	for(int i = 0; i<MAP_HEIGHT;++i)
 			for(int j = 0;j<MAP_WIDTH;++j){
-				if(i == 0 || i == MAP_HEIGHT-1){
-					if(j>=3 && j < MAP_WIDTH-3)
-						terrain[i][j] = MOUNTAIN;
-					else
-						terrain[i][j] = PLAIN;
-				}
-				else if((i == 1 || i == MAP_HEIGHT-2) && (j >= 1 && j <= MAP_WIDTH-2))
+			
+			 if((i == 1 || i == MAP_HEIGHT-2) && (j >= 1 && j <= MAP_WIDTH-2))
 					terrain[i][j] = ROAD;
 				else if 	((j == 1 || j == MAP_WIDTH-2)	&& (i >= 1 && i < MAP_HEIGHT-1))
 					terrain[i][j] = ROAD2;
@@ -26,10 +21,15 @@ void GameMapModel::populateTerrain(){
 				terrain[i][j] = PLAIN;
 				
 			}
-		terrain[MAP_HEIGHT/2-1][MAP_WIDTH/2-1] = MOUNTAIN;
-		terrain[MAP_HEIGHT/2][MAP_WIDTH/2-1] = MOUNTAIN;
-		terrain[MAP_HEIGHT/2-1][MAP_WIDTH/2] = MOUNTAIN;
-		terrain[MAP_HEIGHT/2][MAP_WIDTH/2] = MOUNTAIN;
+		terrain[1][1] = ROAD_UL;
+		terrain[1][MAP_WIDTH-2] = ROAD_UR;
+		terrain[MAP_HEIGHT-2][1] = ROAD_LL;
+		terrain[MAP_HEIGHT-2][MAP_WIDTH-2] = ROAD_LR;
+		for(int m = 0; m < MAP_HEIGHT;++m)
+			for(int n = MAP_WIDTH/2 -1;n<MAP_WIDTH/2+1; ++n)
+				if(m!=1 && m!=MAP_HEIGHT-2)
+					terrain[m][n] = MOUNTAIN;
+	
 }
 void GameMapModel::populateUnits(){
 	for(int i = 0; i<MAP_HEIGHT;++i)

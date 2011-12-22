@@ -1,6 +1,6 @@
 #pragma once
 
-enum Terrain_Enum {ROAD, PLAIN, MOUNTAIN, ROAD2};
+enum Terrain_Enum {ROAD, PLAIN, MOUNTAIN, ROAD2, ROAD_UL, ROAD_UR, ROAD_LR, ROAD_LL};
 enum Unit_Enum {INFANTRY, MECH, ARTILLERY, TANK};
 enum Building_Enum {HEADQUARTERS, BASE, CITY};
 enum Menu_Enum {DEFAULT, ACTION, BUILD};
